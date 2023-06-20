@@ -33,6 +33,10 @@ app.use("/api/orders", orderRouter);
 app.use("/api/checkout", stripeRouter);
 app.use("/api/send", emailRouter);
 
+app.get('/', (req, res) => {
+    res.status(200).json({ "message": "Welcome to the API" });
+})
+
 app.listen(process.env.port || 5000, () => {
   console.log("Server is running on port 5000");
 });

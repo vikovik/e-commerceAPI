@@ -18,6 +18,7 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connection successful");
+    alert("Connected");
   })
   .catch((err) => {
     console.log(err);
@@ -35,6 +36,12 @@ app.use("/api/send", emailRouter);
 
 app.get('/', (req, res) => {
     res.status(200).json({ "message": "Welcome to the API" });
+})
+app.get('/api/products', (req, res) => {
+    res.status(200).json({ "message": "Welcome to the products" });
+})
+app.get('/api/users', (req, res) => {
+    res.status(200).json({ "message": "Welcome to the users" });
 })
 
 app.listen(process.env.port || 5000, () => {

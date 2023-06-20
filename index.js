@@ -8,6 +8,7 @@ const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
 const orderRouter = require("./routes/order");
 const stripeRouter = require("./routes/stripe");
+const emailRouter = require("./routes/email");
 const cors = require("cors");
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/checkout", stripeRouter);
+app.use("/api/send", emailRouter);
 
 app.listen(process.env.port || 5000, () => {
   console.log("Server is running on port 5000");

@@ -9,6 +9,7 @@ const cartRouter = require("./routes/cart");
 const orderRouter = require("./routes/order");
 const stripeRouter = require("./routes/stripe");
 const emailRouter = require("./routes/email");
+const wishlistRouter = require("./routes/wishlist");
 const cors = require("cors");
 
 dotenv.config();
@@ -18,7 +19,6 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connection successful");
-    alert("Connected");
   })
   .catch((err) => {
     console.log(err);
@@ -33,6 +33,7 @@ app.use("/api/carts", cartRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/checkout", stripeRouter);
 app.use("/api/send", emailRouter);
+app.use("/api/wishlists", wishlistRouter);
 
 app.listen(process.env.port || 5000, () => {
   console.log("Server is running on port 5000");
